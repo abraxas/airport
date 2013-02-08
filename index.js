@@ -196,13 +196,17 @@ Airport.prototype.listen = function () {
         server = upnode(cons);
     }
     
-    var em = new EventEmitter;
     
     var port = self.ports.register(opts);
+
     self.ports.on('close',function() {
       self.ports.free(port);
     });
-    server.listen(port);
+    var s = server.listen(port);
+
+    var em = new EventEmitter;
+    em.close = s.close.bind(s);
+    em._servers = server._servers;
 
     /*
     self.ports.service(opts.role, meta, function (port) {

@@ -1,0 +1,88 @@
+
+> airport@0.4.3 test /home/charles/devel/node/airport
+> tap test/*.js
+
+ok test/connect.js ...................................... 2/2
+not ok test/hub_down_server_down.js ..................... 1/3
+    Command: "node" "hub_down_server_down.js"
+    TAP version 13
+    not ok 1 should be equivalent
+      ---
+        file:   /home/charles/devel/node/airport/test/hub_down_server_down.js
+        line:   28
+        column: 11
+        stack:  
+          - getCaller (/home/charles/devel/node/airport/node_modules/tap/lib/tap-assert.js:418:17)
+          - assert (/home/charles/devel/node/airport/node_modules/tap/lib/tap-assert.js:21:16)
+          - Function.equivalent (/home/charles/devel/node/airport/node_modules/tap/lib/tap-assert.js:182:12)
+          - Test._testAssert (/home/charles/devel/node/airport/node_modules/tap/lib/tap-test.js:86:16)
+          - checkOutput (/home/charles/devel/node/airport/test/hub_down_server_down.js:28:11)
+          - Object._onTimeout (/home/charles/devel/node/airport/test/hub_down_server_down.js:51:9)
+          - Timer.list.ontimeout (timers.js:101:19)
+        found:  up
+        wanted: down
+        diff:   |
+          FOUND:  up
+          WANTED: down
+                  ^ (at position = 0)
+      ...
+    not ok 2 should be equivalent
+      ---
+        file:   /home/charles/devel/node/airport/test/hub_down_server_down.js
+        line:   29
+        column: 11
+        stack:  
+          - getCaller (/home/charles/devel/node/airport/node_modules/tap/lib/tap-assert.js:418:17)
+          - assert (/home/charles/devel/node/airport/node_modules/tap/lib/tap-assert.js:21:16)
+          - Function.equivalent (/home/charles/devel/node/airport/node_modules/tap/lib/tap-assert.js:182:12)
+          - Test._testAssert (/home/charles/devel/node/airport/node_modules/tap/lib/tap-test.js:86:16)
+          - checkOutput (/home/charles/devel/node/airport/test/hub_down_server_down.js:29:11)
+          - Object._onTimeout (/home/charles/devel/node/airport/test/hub_down_server_down.js:51:9)
+          - Timer.list.ontimeout (timers.js:101:19)
+        found:  down
+        wanted: up
+        diff:   |
+          FOUND:  down
+          WANTED: up
+                  ^ (at position = 0)
+      ...
+    ok 3 test/hub_down_server_down.js
+    
+    1..3
+    # tests 3
+    # pass  1
+    # fail  2
+    
+ok test/off_and_on_again.js ............................. 2/2
+not ok test/recon.js .................................... 0/1
+    Command: "node" "recon.js"
+    TAP version 13
+    not ok 1 test/recon.js
+      ---
+        exit:     1
+        timedOut: true
+        command:  "node" "recon.js"
+      ...
+    
+    1..1
+    # tests 1
+    # fail  1
+    
+ok test/secret.js ....................................... 4/4
+not ok test/updown.js ................................... 0/1
+    Command: "node" "updown.js"
+    TAP version 13
+    not ok 1 test/updown.js
+      ---
+        exit:     1
+        timedOut: true
+        command:  "node" "updown.js"
+      ...
+    
+    1..1
+    # tests 1
+    # fail  1
+    
+total .................................................. 9/13
+
+not ok
