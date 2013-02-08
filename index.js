@@ -198,6 +198,13 @@ Airport.prototype.listen = function () {
     
     var em = new EventEmitter;
     
+    var port = self.ports.register(opts);
+    self.ports.on('close',function() {
+      self.ports.free(port);
+    });
+    server.listen(port);
+
+    /*
     self.ports.service(opts.role, meta, function (port) {
         var s = server.listen(port, opts.callback);
         em.close = s.close.bind(s);
@@ -208,6 +215,7 @@ Airport.prototype.listen = function () {
             em.emit('close');
         });
     });
+    */
     
     return em;
 };
