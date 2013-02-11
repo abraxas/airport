@@ -24,7 +24,7 @@ test('hub goes down, server goes down', function (t) {
     ps.client.stdout.on('data', function (buf) { data += buf });
 ps.client.stderr.pipe(process.stderr, { end : false });
     function checkOutput () {
-console.dir(data); 
+        console.dir(data); 
         t.same(data.split(/\r?\n/).slice(-3)[0], 'down');
         t.same(data.split(/\r?\n/).slice(-2)[0], 'up');
     }

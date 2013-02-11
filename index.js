@@ -199,14 +199,15 @@ Airport.prototype.listen = function () {
     
     var port = self.ports.register(opts);
 
-    self.ports.on('close',function() {
-      self.ports.free(port);
-    });
     var s = server.listen(port);
 
     var em = new EventEmitter;
     em.close = s.close.bind(s);
     em._servers = server._servers;
+    self.ports.on('close',function() {
+      self.ports.free(port);
+      em.emit('close');
+    });
 
     /*
     self.ports.service(opts.role, meta, function (port) {
